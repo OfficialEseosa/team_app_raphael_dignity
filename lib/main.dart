@@ -10,10 +10,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      // TASK 1: Change the title of the app
       title: 'My First Flutter App',
       theme: ThemeData(
-        // TASK 2: Change the primary swatch color (try Colors.red, Colors.green)
         primarySwatch: Colors.green,
       ),
       home: HomePage(),
@@ -21,30 +19,35 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
+  @override
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  int _count = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        // TASK 3: Change the text in the top bar
         title: Text('Welcome to MAD'),
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            // TASK 4: Change the main text below
             Text(
               'Welcome, This is Flutter!',
               style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
             ),
-            SizedBox(height: 20), // Adds space between widgets
-            // TASK 5: Change the subtitle text
+            SizedBox(height: 20),
             Text(
               'This is my first modification.',
               style: TextStyle(fontSize: 16, color: Colors.grey),
             ),
             SizedBox(height: 20),
+
             Card(
               elevation: 4,
               margin: EdgeInsets.all(16),
@@ -57,21 +60,48 @@ class HomePage extends StatelessWidget {
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text('Raphael Dignity', 
-                          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
-                        Text('Major: Computer Science', 
-                          style: TextStyle(color: Colors.grey)),
+                        Text(
+                          'Raphael Dignity',
+                          style: TextStyle(
+                              fontSize: 18, fontWeight: FontWeight.bold),
+                        ),
+                        Text(
+                          'Major: Computer Science',
+                          style: TextStyle(color: Colors.grey),
+                        ),
                       ],
                     ),
                   ],
                 ),
               ),
             ),
+
+            Text(
+              'Counter: $_count',
+              style: TextStyle(fontSize: 20),
+            ),
+            SizedBox(height: 10),
+
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                ElevatedButton(
+                  onPressed: () => setState(() => _count--),
+                  child: Icon(Icons.remove),
+                ),
+                SizedBox(width: 20),
+                ElevatedButton(
+                  onPressed: () => setState(() => _count++),
+                  child: Icon(Icons.add),
+                ),
+              ],
+            ),
+
+            SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
                 print('Button Clicked!');
               },
-              // TASK 6: Change the text on the button
               child: Text('Press me!'),
             ),
           ],
