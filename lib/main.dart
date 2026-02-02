@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
       title: 'My First Flutter App',
       theme: ThemeData(
         // TASK 2: Change the primary swatch color (try Colors.red, Colors.green)
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.green,
       ),
       home: HomePage(),
     );
@@ -27,7 +27,7 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         // TASK 3: Change the text in the top bar
-        title: Text('Welcome to Class'),
+        title: Text('Welcome to MAD'),
       ),
       body: Center(
         child: Column(
@@ -35,7 +35,7 @@ class HomePage extends StatelessWidget {
           children: [
             // TASK 4: Change the main text below
             Text(
-              'Hello, Flutter!',
+              'Welcome, This is Flutter!',
               style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
             ),
             SizedBox(height: 20), // Adds space between widgets
@@ -50,7 +50,7 @@ class HomePage extends StatelessWidget {
                 print('Button Clicked!');
               },
               // TASK 6: Change the text on the button
-              child: Text('Click Me'),
+              child: Text('Press me!'),
             ),
           ],
         ),
